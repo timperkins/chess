@@ -83,3 +83,7 @@ export function createPiece({x, y, color, name}) {
 export function createPieces(data) {
   return data.map(createPiece);
 }
+
+export function arePiecesOpponents(a, b) {
+  return a.isWhite !== b.isWhite;
+}
