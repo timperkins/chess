@@ -16,7 +16,15 @@ export default class Piece {
     this.y = y;
     this.color = color;
     this.name = name;
-  }  
+  }
+
+  get isWhite() {
+    return this.color === WHITE;
+  }
+
+  get isBlack() {
+    return this.color === BLACK;
+  }
 }
 
 export class Rook extends Piece {
