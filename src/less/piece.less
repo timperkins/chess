@@ -1,0 +1,53 @@
+.piece {
+  position: absolute;
+  background-image: url('/img/pieces.svg');
+  transform: translate(-50%, -50%) scale(1.5);
+}
+.piece-rook {
+  background-position: left -188px top -8px;
+  width: 29px;
+  height: 32px;
+  &.piece-black {
+    background-position: left -188px top -53px;
+  }
+}
+.piece-knight {
+  background-position: left -140px top -6px;
+  width: 34px;
+  height: 34px;
+  &.piece-black {
+    background-position: left -140px top -51px;
+  }
+}
+.piece-bishop {
+  background-position: left -95px top -4px;
+  width: 34px;
+  height: 36px;
+  &.piece-black {
+    background-position: left -95px top -48px;
+  }
+}
+.piece-king {
+  background-position: left -5px top -5px;
+  width: 34px;
+  height: 36px;
+  &.piece-black {
+    background-position: left -5px top -50px;
+  }
+}
+.piece-queen {
+  background-position: left -48px top -4px;
+  width: 39px;
+  height: 37px;
+  &.piece-black {
+    background-position: left -48px top -50px;
+  }
+}
+.piece-pawn {
+  background-position: left -234px top -8px;
+  width: 26px;
+  height: 33px;
+  &.piece-black {
+    background-position: left -234px top -52px;
+  }
+}
