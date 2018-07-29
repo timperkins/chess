@@ -2,11 +2,21 @@
   width: 600px;
   height: 600px;
   position: relative;
+  cursor: pointer;
 }
 .space {
   background: #eee;
   position: absolute;
 }
-.space-black {
-  background: #666;
+.space-dark {
+  background: #388E3C;
+}
+.space-active {
+  background: #81D4FA;
+}
+.space-possible-move {
+  background: #FFD54F;
+  &.space-dark {
+    background: #FFE082;
+  }
 }

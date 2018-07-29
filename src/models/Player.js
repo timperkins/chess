@@ -20,6 +20,10 @@ export default class Player {
   constructor(color) {
     this.color = color;
   }
+
+  doesOwnPiece(piece) {
+    return this.color === piece.color;
+  }
 }
 
 export class WhitePlayer extends Player {

@@ -7,15 +7,19 @@ export default class GamePieces {
     return this._pieces;
   }
 
+  getAllInGame() {
+    return this._pieces.filter(piece => !piece.isRemoved);
+  }
+
   getBlackPieces() {
-    return this._pieces.filter(piece => piece.isBlack);
+    return this.getAllInGame().filter(piece => piece.isBlack);
   }
 
   getWhitePieces() {
-    return this._pieces.filter(piece => piece.isWhite);
+    return this.getAllInGame().filter(piece => piece.isWhite);
   }
 
   getPieceAt(x, y) {
-    return this._pieces.find(piece => piece.x === x && piece.y === y);
+    return this.getAllInGame().find(piece => piece.x === x && piece.y === y);
   }
 }

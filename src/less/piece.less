@@ -1,7 +1,14 @@
-.piece {
+.piece-wrap {
+  width: 12.5%;
+  height: 12.5%;
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.piece {
   background-image: url('/img/pieces.svg');
-  transform: translate(-50%, -50%) scale(1.5);
+  transform: scale(1.5);
 }
 .piece-rook {
   background-position: left -188px top -8px;

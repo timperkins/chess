@@ -16,6 +16,7 @@ export default class Piece {
     this.y = y;
     this.color = color;
     this.name = name;
+    this.isRemoved = false;
   }
 
   get isWhite() {
@@ -24,6 +25,15 @@ export default class Piece {
 
   get isBlack() {
     return this.color === BLACK;
+  }
+
+  remove() {
+    this.isRemoved = true;
+  }
+
+  moveTo(x, y) {
+    this.x = x;
+    this.y = y;
   }
 }
 

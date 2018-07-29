@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, cloneElement} from 'react';
 import classNames from 'classnames';
 import {Rook, Bishop, Knight, King, Queen, Pawn, getPiece} from './Piece';
 import '../less/board.less';
@@ -8,18 +8,18 @@ const spaceSize = 12.5;
 export default class Board extends Component {
   renderSpaces() {
     const spaces = [];
-    for (let i=0; i<8; i++) {
-      for (let j=0; j<8; j++) {
+    const {game} = this.props;
+    const {activeX, activeY} = game;
+    for (let x=0; x<8; x++) {
+      for (let y=0; y<8; y++) {
         spaces.push((
-          <div
-            key={`space${i}${j}`}
-            className={classNames('space', {'space-black': (i+j)%2})}
-            style={{
-              width: `${spaceSize}%`,
-              height: `${spaceSize}%`,
-              left: `${i*spaceSize}%`,
-              top: `${j*spaceSize}%`,
-            }}
+          <Space
+            key={`space${x}${y}`}
+            x={x}
+            y={y}
+            onClick={this.props.onClick}
+            isActive={x === activeX && y === activeY}
+            isPossibleMove={game.isPossibleMove(x, y)}
           />
         ));
       }
@@ -28,7 +28,10 @@ export default class Board extends Component {
   }
 
   renderPieces() {
-    return this.props.pieces.map(getPiece);
+    const {game, onClick} = this.props;
+    return game.pieces.getAllInGame().map(piece => cloneElement(getPiece(piece), {
+      onClick,
+    }));
   }
 
   render() {
@@ -39,4 +42,24 @@ export default class Board extends Component {
       </div>
     );
   }
+}
+
+function Space({x, y, onClick, isActive, isPossibleMove}) {
+  return (
+    <div
+      onClick={e => onClick(x, y)}
+      className={classNames(
+        'space',
+        {'space-dark': (x+y)%2},
+        {'space-active': isActive},
+        {'space-possible-move': isPossibleMove}
+      )}
+      style={{
+        width: `${spaceSize}%`,
+        height: `${spaceSize}%`,
+        left: `${x*spaceSize}%`,
+        top: `${y*spaceSize}%`,
+      }}
+    />
+  );
 }

@@ -12,19 +12,25 @@ import '../less/piece.less';
 
 export default class Piece extends Component {
   render() {
+    const {onClick, className} = this.props;
     const {x, y, color} = this.props.piece;
     return (
       <div
-        className={classNames(
-          'piece',
-          `piece-${color}`,
-          this.props.className
-        )}
+        onClick={e => onClick(x, y)}
+        className="piece-wrap"
         style={{
-          left: `${6.25+(x*12.5)}%`,
-          top: `${6.25+(y*12.5)}%`,
+          left: `${x*12.5}%`,
+          top: `${y*12.5}%`,
         }}
-      />
+      >
+        <div
+          className={classNames(
+            'piece',
+            `piece-${color}`,
+            className
+          )}
+        />
+      </div>
     );
   }
 }
