@@ -2,11 +2,13 @@ import getPossiblePawnMoves from './getPossiblePawnMoves';
 import getPossibleRookMoves from './getPossibleRookMoves';
 import getPossibleKnightMoves from './getPossibleKnightMoves';
 import getPossibleBishopMoves from './getPossibleBishopMoves';
+import getPossibleQueenMoves from './getPossibleQueenMoves';
 import {
   PAWN,
   ROOK,
   KNIGHT,
   BISHOP,
+  QUEEN,
 } from '../models/Piece';
 
 export default function getPossibleMoves(piece, gamePieces) {
@@ -19,6 +21,8 @@ export default function getPossibleMoves(piece, gamePieces) {
       return getPossibleKnightMoves(piece, gamePieces);
     case BISHOP:
       return getPossibleBishopMoves(piece, gamePieces);
+    case QUEEN:
+      return getPossibleQueenMoves(piece, gamePieces);
   }
   return [];
 }
