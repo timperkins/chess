@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
-import {
-  ROOK,
-  KNIGHT,
-  BISHOP,
-  KING,
-  QUEEN,
-  PAWN,
-} from '../models/Piece';
+import {BISHOP} from '../models/Bishop';
+import {KING} from '../models/King';
+import {KNIGHT} from '../models/Knight';
+import {PAWN} from '../models/Pawn';
+import {QUEEN} from '../models/Queen';
+import {ROOK} from '../models/Rook';
 import '../less/piece.less';
 
 export default class Piece extends Component {

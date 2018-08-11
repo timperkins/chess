@@ -1,19 +1,14 @@
-import {
-  createPiece,
-  createPieces,
-  PAWN,
-  KNIGHT,
-  WHITE,
-  BLACK,
-} from '../models/Piece';
+import {WHITE, BLACK} from '../models/Piece';
+import createPiece, {createPieces} from './createPiece';
+import {PAWN} from './Pawn';
+import {KNIGHT} from './Knight';
 import GamePieces from '../models/GamePieces';
-import getPossibleMoves from './getPossibleMoves';
 
 describe('getPossibleMoves KNIGHT', () => {
   test('Empty board.', () => {
     const piece = createPiece({x: 3, y: 3, name: KNIGHT, color: WHITE});
     let gamePieces = new GamePieces([piece]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 4, y: 5},
       {x: 5, y: 4},
       {x: 5, y: 2},
@@ -27,7 +22,7 @@ describe('getPossibleMoves KNIGHT', () => {
   test('Close to the edge.', () => {
     const piece = createPiece({x: 1, y: 3, name: KNIGHT, color: WHITE});
     let gamePieces = new GamePieces([piece]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 2, y: 5},
       {x: 3, y: 4},
       {x: 3, y: 2},
@@ -44,7 +39,7 @@ describe('getPossibleMoves KNIGHT', () => {
       {x: 2, y: 5, name: PAWN, color: BLACK},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 4, y: 5},
       {x: 5, y: 2},
       {x: 4, y: 1},

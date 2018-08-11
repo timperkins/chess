@@ -1,13 +1,8 @@
-import {
-  createPiece,
-  createPieces,
-  PAWN,
-  BISHOP,
-  WHITE,
-  BLACK,
-} from '../models/Piece';
+import {WHITE, BLACK} from '../models/Piece';
+import createPiece, {createPieces} from './createPiece';
+import {PAWN} from './Pawn';
+import {BISHOP} from './Bishop';
 import GamePieces from '../models/GamePieces';
-import getPossibleMoves from './getPossibleMoves';
 
 describe('getPossibleMoves BISHOP', () => {
   // Top Left
@@ -19,7 +14,7 @@ describe('getPossibleMoves BISHOP', () => {
       {x: 1, y: 3, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 1, y: 1},
       {x: 0, y: 0},
     ]);
@@ -33,7 +28,7 @@ describe('getPossibleMoves BISHOP', () => {
       {x: 0, y: 0, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 1, y: 1},
     ]);
   });
@@ -46,7 +41,7 @@ describe('getPossibleMoves BISHOP', () => {
       {x: 0, y: 0, name: PAWN, color: BLACK},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 1, y: 1},
       {x: 0, y: 0},
     ]);
@@ -60,7 +55,7 @@ describe('getPossibleMoves BISHOP', () => {
       {x: 6, y: 3, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 6, y: 1},
       {x: 7, y: 0},
     ]);
@@ -74,7 +69,7 @@ describe('getPossibleMoves BISHOP', () => {
       {x: 6, y: 4, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 6, y: 6},
       {x: 7, y: 7},
     ]);
@@ -88,7 +83,7 @@ describe('getPossibleMoves BISHOP', () => {
       {x: 3, y: 4, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 1, y: 6},
       {x: 0, y: 7},
     ]);

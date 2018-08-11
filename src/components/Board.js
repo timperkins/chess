@@ -1,6 +1,6 @@
 import React, {Component, cloneElement} from 'react';
 import classNames from 'classnames';
-import {Rook, Bishop, Knight, King, Queen, Pawn, getPiece} from './Piece';
+import {getPiece} from './Piece';
 import '../less/board.less';
 
 const spaceSize = 12.5;

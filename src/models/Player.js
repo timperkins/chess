@@ -1,20 +1,14 @@
+import {BISHOP} from './Bishop';
+import {KING} from './King';
+import {KNIGHT} from './Knight';
+import {PAWN} from './Pawn';
+import {QUEEN} from './Queen';
+import {ROOK} from './Rook';
 import {
-  Rook,
-  Bishop,
-  Knight,
-  King,
-  Queen,
-  Pawn,
-  ROOK,
-  KNIGHT,
-  BISHOP,
-  KING,
-  QUEEN,
-  PAWN,
   BLACK,
   WHITE,
-  createPieces,
 } from './Piece';
+import {createPieces} from './createPiece';
 
 export default class Player {
   constructor(color) {

@@ -1,6 +1,5 @@
 import {WhitePlayer, BlackPlayer} from './Player';
 import GamePieces from './GamePieces';
-import getPossibleMoves from '../util/getPossibleMoves';
 
 export default class Game {
   init() {
@@ -28,7 +27,7 @@ export default class Game {
 
   getPossibleMoves() {
     if (!this.activePiece) { return []; }
-    return getPossibleMoves(this.activePiece, this.pieces);
+    return this.activePiece.getPossibleMoves(this.pieces);
   }
 
   isPossibleMove(x, y) {

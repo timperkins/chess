@@ -1,23 +1,18 @@
-import {
-  createPiece,
-  createPieces,
-  PAWN,
-  WHITE,
-  BLACK,
-} from '../models/Piece';
+import {WHITE, BLACK} from '../models/Piece';
+import createPiece, {createPieces} from './createPiece';
+import {PAWN} from './Pawn';
 import GamePieces from '../models/GamePieces';
-import getPossibleMoves from './getPossibleMoves';
 
-describe('getPossibleMoves PAWN', () => {
+describe('PAWN getPossibleMoves', () => {
   test('Move one or two places from the starting line.', () => {
     const whitePiece = createPiece({x: 0, y: 1, name: PAWN, color: WHITE});
     const blackPiece = createPiece({x: 0, y: 6, name: PAWN, color: BLACK});
     const gamePieces = new GamePieces([whitePiece, blackPiece]);
-    expect(getPossibleMoves(whitePiece, gamePieces)).toEqual([
+    expect(whitePiece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 2},
       {x: 0, y: 3},
     ]);
-    expect(getPossibleMoves(blackPiece, gamePieces)).toEqual([
+    expect(blackPiece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 5},
       {x: 0, y: 4},
     ]);
@@ -34,10 +29,10 @@ describe('getPossibleMoves PAWN', () => {
       blackPiece,
       blackPiece2,
     ]);
-    expect(getPossibleMoves(whitePiece, gamePieces)).toEqual([
+    expect(whitePiece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 2},
     ]);
-    expect(getPossibleMoves(blackPiece, gamePieces)).toEqual([
+    expect(blackPiece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 5},
     ]);
   });
@@ -53,8 +48,8 @@ describe('getPossibleMoves PAWN', () => {
       blackPiece,
       blackPiece2,
     ]);
-    expect(getPossibleMoves(whitePiece, gamePieces)).toEqual([]);
-    expect(getPossibleMoves(blackPiece, gamePieces)).toEqual([]);
+    expect(whitePiece.getPossibleMoves(gamePieces)).toEqual([]);
+    expect(blackPiece.getPossibleMoves(gamePieces)).toEqual([]);
   });
 
   test('Diagonal moves (white).', () => {
@@ -67,7 +62,7 @@ describe('getPossibleMoves PAWN', () => {
       piece,
       ...otherPieces,
     ]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 2, y: 2},
     ]);
   });
@@ -82,7 +77,7 @@ describe('getPossibleMoves PAWN', () => {
       piece,
       ...otherPieces,
     ]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 2, y: 5},
     ]);
   });

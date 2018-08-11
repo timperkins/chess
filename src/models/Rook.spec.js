@@ -1,15 +1,10 @@
-import {
-  createPiece,
-  createPieces,
-  PAWN,
-  ROOK,
-  WHITE,
-  BLACK,
-} from '../models/Piece';
+import {WHITE, BLACK} from '../models/Piece';
+import createPiece, {createPieces} from './createPiece';
+import {PAWN} from './Pawn';
+import {ROOK} from './Rook';
 import GamePieces from '../models/GamePieces';
-import getPossibleMoves from './getPossibleMoves';
 
-describe('getPossibleMoves ROOK', () => {
+describe('ROOK getPossibleMoves', () => {
   // Left
   test('Move left.', () => {
     const piece = createPiece({x: 3, y: 0, name: ROOK, color: WHITE});
@@ -18,7 +13,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 3, y: 1, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 2, y: 0},
       {x: 1, y: 0},
       {x: 0, y: 0},
@@ -32,7 +27,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 0, y: 0, name: PAWN, color: WHITE},
     ]);
     const gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 2, y: 0},
       {x: 1, y: 0},
     ]);
@@ -45,7 +40,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 0, y: 0, name: PAWN, color: BLACK},
     ]);
     const gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 2, y: 0},
       {x: 1, y: 0},
       {x: 0, y: 0},
@@ -59,7 +54,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 4, y: 1, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 5, y: 0},
       {x: 6, y: 0},
       {x: 7, y: 0},
@@ -73,7 +68,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 7, y: 0, name: PAWN, color: WHITE},
     ]);
     const gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 5, y: 0},
       {x: 6, y: 0},
     ]);
@@ -86,7 +81,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 7, y: 0, name: PAWN, color: BLACK},
     ]);
     const gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 5, y: 0},
       {x: 6, y: 0},
       {x: 7, y: 0},
@@ -100,7 +95,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 1, y: 3, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 2},
       {x: 0, y: 1},
       {x: 0, y: 0},
@@ -114,7 +109,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 0, y: 0, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 2},
       {x: 0, y: 1},
     ]);
@@ -127,7 +122,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 0, y: 0, name: PAWN, color: BLACK},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 2},
       {x: 0, y: 1},
       {x: 0, y: 0},
@@ -141,7 +136,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 1, y: 4, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 5},
       {x: 0, y: 6},
       {x: 0, y: 7},
@@ -155,7 +150,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 0, y: 7, name: PAWN, color: WHITE},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 5},
       {x: 0, y: 6},
     ]);
@@ -168,7 +163,7 @@ describe('getPossibleMoves ROOK', () => {
       {x: 0, y: 7, name: PAWN, color: BLACK},
     ]);
     let gamePieces = new GamePieces([piece, ...otherPieces]);
-    expect(getPossibleMoves(piece, gamePieces)).toEqual([
+    expect(piece.getPossibleMoves(gamePieces)).toEqual([
       {x: 0, y: 5},
       {x: 0, y: 6},
       {x: 0, y: 7},
